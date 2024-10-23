@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar contacto</title>
+</head>
+<body>
+    <h1>Editar Contacto</h1>
+    <form action="{{ url_for('editar',id=contacto.id)}}" method="POST">
+        Descripcion:<input type="text" name="descripcion" value="{{contacto['descripcion']}}" required><br>
+        Cantidad:<input type="text" name="cantidad" value="{{contacto['cantidad']}}" required><br>
+        Precio:<input type="text" name="precio" value="{{contacto['precio']}}" required><br>
+        Fecha Venc:<input type="text" name="fecha_venc" value="{{contacto['fecha_venc']}}" required><br>
+        Categoria:<input type="text" name="categoria" value="{{contacto['categoria']}}" required><br>
+
+
+        
+        <input type="submit">
+
+    </form>
+</body>
+</html>

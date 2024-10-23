@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2do Parcial JFM</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>
+                <h2> SEGUNDO PARCIAL TEM-742</h2>
+                <h3>Nombre : Julio FM</h3>
+                <h3>Carnet : 7052207</h3><br><br>
+
+            </th>
+        </tr>
+    </table>
+    <h1>Gestion de Productos</h1>
+    <a href="{{ url_for ('nuevo')}}">Nuevo Producto</a>
+    <br>
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Descripcion</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Fecha de Venc.</th>
+            <th>Categoria</th>
+            <th></th>
+            <th></th>
+
+        </tr>
+        {%for item in contactos%}
+        <tr>
+            <th>{{item.id }}</th>
+            <th> {{item.descripcion }}</th>
+            <th>{{item.cantidad }}</th>
+            <th>{{item.precio }}</th>
+            <th>{{item.fecha_venc }}</th>
+            <th>{{item.categoria }}</th>
+            <th><a href="{{ url_for('editar',id=item.id)}}">editar</a></th>
+            <th>
+                <form action="{{ url_for('eliminar',id=item.id)}}" method="POST">
+                    <input type="submit" value="eliminar">
+                </form>
+            </th>
+
+        </tr>
+        {% endfor %}
+
+
+    </table>
+
+</body>
+</html>
